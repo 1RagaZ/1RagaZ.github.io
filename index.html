@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Jackson Wambugu — Backend Developer & IT Student in Nairobi, Kenya. Algorithmic trading systems, AI agent architecture, and database engineering." />
+<meta name="theme-color" content="#05080F" />
+<title>Jackson Wambugu — Backend Developer · Nairobi, Kenya</title>
+<style>
+  /* ================= TOKENS ================= */
+  :root{
+    --bg:#05080F;
+    --panel:#0B111C;
+    --panel-2:#0E1626;
+    --border:rgba(148,163,184,.14);
+    --border-hi:rgba(34,211,238,.4);
+    --ink:#E8EEF7;
+    --ink-soft:#B7C2D4;
+    --mute:#8B98AB;
+    --cyan:#22D3EE;
+    --teal:#2DD4BF;
+    --green:#34D399;
+    --amber:#FBBF24;
+    --blue:#60A5FA;
+    --grad:linear-gradient(92deg,#22D3EE 0%,#60A5FA 55%,#34D399 100%);
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+
+  /* ================= BASE ================= */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:dark}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--cyan);color:#04121A}
+
+  /* dot-grid backdrop, fading toward the fold */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(rgba(148,163,184,.13) 1px,transparent 1.6px);
+    background-size:30px 30px;
+    -webkit-mask-image:radial-gradient(ellipse 95% 75% at 50% 0%,#000 25%,transparent 100%);
+            mask-image:radial-gradient(ellipse 95% 75% at 50% 0%,#000 25%,transparent 100%);
+  }
+  .orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+  .orb-1{width:520px;height:520px;top:-180px;left:12%;background:rgba(34,211,238,.12)}
+  .orb-2{width:460px;height:460px;top:34%;right:-160px;background:rgba(96,165,250,.09)}
+
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+  .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ================= NAV ================= */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(5,8,15,.72);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-in{max-width:960px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;display:inline-flex;align-items:center;gap:9px;color:var(--ink)}
+  .logo b{color:var(--cyan);font-weight:700}
+  .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+  .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);transition:color .2s}
+  .nav-links a:hover{color:var(--cyan)}
+  .nav-cta{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.05em;color:#04121A!important;background:linear-gradient(135deg,#22D3EE,#0EA5E9);padding:8px 15px;border-radius:8px;transition:transform .2s var(--ease),box-shadow .2s}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(34,211,238,.28);color:#04121A!important}
+
+  /* ================= HERO ================= */
+  .hero{padding:158px 0 84px;display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+  .eyebrow::before{content:"// ";color:var(--mute)}
+  h1{font-size:clamp(2.7rem,6.2vw,4.1rem);font-weight:800;letter-spacing:-.04em;line-height:1.04}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-lead{margin-top:20px;font-size:17.5px;color:var(--ink-soft);max-width:52ch}
+  .hero-lead strong{color:var(--ink);font-weight:600}
+  .contact-line{display:flex;flex-wrap:wrap;column-gap:14px;row-gap:8px;margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--mute)}
+  .contact-line a{color:var(--ink);border-bottom:1px solid rgba(34,211,238,.4);padding-bottom:1px;transition:color .2s,border-color .2s}
+  .contact-line a:hover{color:var(--cyan);border-bottom-color:var(--cyan)}
+  .contact-line .sep{color:#3B4757}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:700;letter-spacing:.01em;padding:13px 24px;border-radius:10px;transition:transform .22s var(--ease),box-shadow .22s,background .22s,border-color .22s}
+  .btn-pri{background:linear-gradient(135deg,#22D3EE,#0EA5E9);color:#04121A}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(34,211,238,.3)}
+  .btn-sec{border:1px solid var(--border);color:var(--ink);background:rgba(11,17,28,.6)}
+  .btn-sec:hover{transform:translateY(-2px);border-color:var(--border-hi);color:var(--cyan)}
+
+  /* terminal card */
+  .term{
+    background:rgba(11,17,28,.82);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px rgba(34,211,238,.05) inset;
+    overflow:hidden;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--border);background:rgba(14,22,38,.7)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar i:nth-child(1){background:#FF5F57}.term-bar i:nth-child(2){background:#FEBC2E}.term-bar i:nth-child(3){background:#28C840}
+  .term-title{margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.05em}
+  .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:13.5px;line-height:1.95;min-height:262px}
+  .t-line{white-space:pre-wrap;word-break:break-word}
+  .t-prompt{color:var(--teal)}
+  .t-cmd .t-text{color:var(--ink)}
+  .t-out{color:var(--mute)}
+  .t-ok{color:var(--green);font-weight:700}
+  .caret{display:inline-block;width:8px;height:15px;margin-left:2px;background:var(--cyan);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* ================= TICKER ================= */
+  .ticker{border-block:1px solid var(--border);background:rgba(11,17,28,.55);overflow:hidden;position:relative;z-index:1}
+  .ticker-track{display:flex;width:max-content;animation:scroll 30s linear infinite}
+  .t-group{display:flex;flex-shrink:0;align-items:center;gap:2.6rem;padding:15px 1.3rem 15px 1.3rem}
+  .t-item{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+  .t-item em{font-style:normal;color:var(--cyan);margin-right:9px}
+  .t-item.down em{color:var(--amber)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ================= SECTIONS ================= */
+  section{padding:92px 0}
+  .sec-tag{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+  .sec-tag::before{content:"// ";color:var(--mute)}
+  h2{margin-top:14px;font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.15}
+  .sec-sub{margin-top:12px;color:var(--mute);font-size:15.5px;max-width:58ch}
+  .sec-head{margin-bottom:44px}
+
+  /* about */
+  .about-flow{font-size:17.5px;color:var(--ink-soft);max-width:70ch}
+  .about-flow p+p{margin-top:18px}
+  .hl{color:var(--ink);font-weight:600}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  .pillar{
+    position:relative;background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:22px 20px;transition:transform .25s var(--ease),border-color .25s;overflow:hidden;
+  }
+  .pillar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  .pillar:hover{transform:translateY(-4px);border-color:var(--border-hi)}
+  .pillar:hover::before{transform:scaleX(1)}
+  .pillar h3{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+  .pillar p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* ================= PROJECTS ================= */
+  .projects{display:grid;gap:18px}
+  .project{
+    position:relative;display:grid;grid-template-columns:150px 1fr;gap:30px;
+    background:var(--panel);border:1px solid var(--border);border-radius:16px;
+    padding:30px 32px;overflow:hidden;
+    transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;
+  }
+  /* cursor-tracked spotlight */
+  .project::before{
+    content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;
+    background:radial-gradient(540px circle at var(--mx,50%) var(--my,50%),rgba(34,211,238,.08),transparent 55%);
+  }
+  .project::after{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;opacity:0;transition:opacity .3s;
+    background:linear-gradient(90deg,transparent,rgba(34,211,238,.7),transparent);
+  }
+  .project:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.35);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+  .project:hover::before,.project:hover::after{opacity:1}
+  .p-aside{display:flex;flex-direction:column;gap:14px;padding-top:4px}
+  .p-num{font-family:var(--mono);font-size:42px;font-weight:700;line-height:1;color:rgba(34,211,238,.16);letter-spacing:.02em}
+  @supports (-webkit-text-stroke:1px #000){.p-num{color:transparent;-webkit-text-stroke:1.2px rgba(34,211,238,.5)}}
+  .p-status{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .p-status i{width:6px;height:6px;border-radius:50%;display:block;flex-shrink:0}
+  .st-live{color:var(--green)}.st-live i{background:var(--green)}
+  .st-ai{color:var(--cyan)}.st-ai i{background:var(--cyan)}
+  .st-db{color:var(--blue)}.st-db i{background:var(--blue)}
+  .st-perf{color:var(--amber)}.st-perf i{background:var(--amber)}
+  .p-body h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+  .p-body p{font-size:15.5px;color:var(--ink-soft)}
+  .p-body p strong{color:var(--ink);font-weight:700}
+
+  /* badges */
+  .badges{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:18px}
+  .badges li{
+    font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.03em;
+    color:var(--ink-soft);background:rgba(148,163,184,.08);border:1px solid var(--border);
+    border-radius:999px;padding:6px 13px;transition:border-color .2s,color .2s,transform .2s;
+  }
+  .badges li:hover{border-color:var(--border-hi);color:var(--cyan);transform:translateY(-1px)}
+  .badges-lg li{font-size:12.5px;padding:7px 14px}
+
+  /* ================= STACK ================= */
+  .stack-rows{display:grid;gap:30px}
+  .stack-row{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start;padding-bottom:30px;border-bottom:1px dashed rgba(148,163,184,.15)}
+  .stack-row:last-child{border-bottom:0;padding-bottom:0}
+  .stack-label{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);padding-top:8px}
+  .stack-row .badges{margin-top:0}
+
+  /* ================= EDUCATION / LEARNING ================= */
+  .edu-card{
+    position:relative;background:var(--panel);border:1px solid var(--border);border-radius:16px;
+    padding:30px 32px;overflow:hidden;
+  }
+  .edu-card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--grad)}
+  .edu-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px}
+  .edu-top h3{font-size:18.5px;font-weight:700;letter-spacing:-.01em}
+  .edu-top h3 span{color:var(--mute);font-weight:500}
+  .pill{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.3);border-radius:999px;padding:5px 12px;white-space:nowrap}
+  .edu-school{margin-top:8px;font-family:var(--mono);font-size:13px;color:var(--mute)}
+  .edu-school b{color:var(--ink);font-weight:600}
+  .course{margin-top:20px;padding-top:20px;border-top:1px dashed rgba(148,163,184,.15);font-size:14.5px;color:var(--ink-soft)}
+  .course strong{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:10px}
+
+  .logs{display:grid;gap:14px;list-style:none}
+  .log{
+    display:flex;gap:16px;align-items:flex-start;background:var(--panel);
+    border:1px solid var(--border);border-radius:12px;padding:18px 20px;
+    font-size:15px;color:var(--ink-soft);transition:border-color .2s,transform .2s var(--ease);
+  }
+  .log:hover{border-color:var(--border-hi);transform:translateX(4px)}
+  .log .tag{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;padding:4px 10px;border-radius:6px;margin-top:3px}
+  .tag-run{color:var(--green);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)}
+  .tag-ongoing{color:var(--cyan);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3)}
+  .log strong{color:var(--ink)}
+
+  /* ================= CTA / FOOTER ================= */
+  .cta{
+    text-align:center;background:var(--panel);border:1px solid var(--border);border-radius:20px;
+    padding:64px 32px;position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(480px circle at 50% -10%,rgba(34,211,238,.12),transparent 65%);
+  }
+  .cta h2{position:relative}
+  .cta p{position:relative;margin:14px auto 30px;color:var(--mute);font-size:15.5px;max-width:50ch}
+  .cta .hero-actions{position:relative;justify-content:center;margin-top:0}
+  .cta-meta{position:relative;margin-top:26px;font-family:var(--mono);font-size:12.5px;color:var(--mute)}
+  .cta-meta b{color:var(--ink-soft);font-weight:600}
+  footer{border-top:1px solid var(--border);margin-top:84px;position:relative;z-index:1}
+  .foot-in{max-width:960px;margin:0 auto;padding:26px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.04em}
+  .foot-in a{color:var(--ink-soft);transition:color .2s}
+  .foot-in a:hover{color:var(--cyan)}
+
+  /* ================= REVEAL ================= */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:44px;padding:132px 0 64px}
+    .project{grid-template-columns:1fr;gap:14px;padding:26px 24px}
+    .p-aside{flex-direction:row;align-items:center;gap:16px;padding:0}
+    .p-num{font-size:32px}
+    .stack-row{grid-template-columns:1fr;gap:12px}
+    .stack-label{padding:0}
+    .pillars{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    section{padding:68px 0}
+    .term-body{font-size:12.5px;min-height:280px}
+    .contact-line{font-size:12.5px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+    .ticker-track{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-in">
+    <a class="logo" href="#top"><span class="dot" aria-hidden="true"></span>jackson<b>.dev</b></a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#stack">stack</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a class="nav-cta" href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="reveal in">
+      <p class="eyebrow">backend developer · nairobi, ke</p>
+      <h1>Jackson <span class="grad">Wambugu</span></h1>
+      <p class="hero-lead">Information Technology student &amp; backend developer engineering <strong>automated trading systems</strong>, <strong>GPT-4 agent architectures</strong>, and <strong>database-driven platforms</strong> — bridging academic theory and production-grade software.</p>
+      <p class="contact-line">
+        <a href="mailto:watchyoiko@gmail.com">watchyoiko@gmail.com</a><span class="sep">/</span>
+        <a href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github.com/ragaz</a><span class="sep">/</span>
+        <a href="tel:+254702747841">+254 702 747 841</a><span class="sep">/</span>
+        <span>Nairobi, Kenya</span>
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-pri" href="mailto:watchyoiko@gmail.com">Start a conversation →</a>
+        <a class="btn btn-sec" href="#projects">View the work</a>
+      </div>
+    </div>
+
+    <div class="term reveal in" data-d="1" aria-label="Terminal introduction">
+      <div class="term-bar" aria-hidden="true">
+        <i></i><i></i><i></i>
+        <span class="term-title">jackson@nairobi: ~</span>
+      </div>
+      <div class="term-body" id="term-body"></div>
+    </div>
+  </header>
+</main>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track">
+    <div class="t-group">
+      <span class="t-item"><em>▲</em>Python</span>
+      <span class="t-item down"><em>▼</em>MQL5</span>
+      <span class="t-item"><em>▲</em>GPT-4</span>
+      <span class="t-item"><em>▲</em>LangChain</span>
+      <span class="t-item down"><em>▼</em>Firebase Studio</span>
+      <span class="t-item"><em>▲</em>SQL</span>
+      <span class="t-item"><em>▲</em>VB.NET</span>
+      <span class="t-item down"><em>▼</em>JavaScript</span>
+      <span class="t-item"><em>▲</em>MetaTrader 5</span>
+      <span class="t-item"><em>▲</em>Git</span>
+      <span class="t-item down"><em>▼</em>HTML/CSS</span>
+      <span class="t-item"><em>▲</em>AI Agents</span>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <span class="sec-tag">01 — about</span>
+      <h2>Bridging theory and production.</h2>
+    </div>
+    <div class="about-flow reveal" data-d="1">
+      <p>Motivated Information Technology student <span class="hl">bridging the gap between academic theory and practical software engineering</span>. Proven capability in full-stack integration, algorithmic development, and database architecture.</p>
+      <p>Proficient in leveraging modern frameworks <span class="hl">(LangChain, Firebase, GPT-4)</span> and automation tools <span class="hl">(MT5)</span> to optimize workflows. Fully equipped for remote development environments, bringing strong analytical skills, strict attention to detail, and a commitment to delivering high-performance technical solutions.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar reveal" data-d="1">
+        <h3>Methodology</h3>
+        <p>Full-stack integration, algorithmic development, and database architecture — engineering principles applied with strict attention to detail at every layer of the system.</p>
+      </article>
+      <article class="pillar reveal" data-d="2">
+        <h3>Motivation</h3>
+        <p>Modern frameworks like LangChain, Firebase, and GPT-4, plus automation tooling like MetaTrader 5 — used to close the gap between what systems could do and what they actually deliver.</p>
+      </article>
+      <article class="pillar reveal" data-d="3">
+        <h3>Value</h3>
+        <p>Strong analytical skills and high-performance technical solutions, delivered reliably inside fully remote development environments.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <span class="sec-tag">02 — engineering projects &amp; experience</span>
+      <h2>Systems shipped. Markets survived.</h2>
+      <p class="sec-sub">Four builds across live-market automation, AI backends, data integrity, and performance tuning.</p>
+    </div>
+
+    <div class="projects">
+
+      <article class="project reveal">
+        <div class="p-aside">
+          <span class="p-num" aria-hidden="true">01</span>
+          <span class="p-status st-live"><i aria-hidden="true"></i>live · markets</span>
+        </div>
+        <div class="p-body">
+          <h3>Algorithmic Trading Automations</h3>
+          <p><strong>Engineered</strong> custom automated trading scripts to execute trades based on strict technical parameters. Implemented dynamic risk management algorithms and sophisticated trailing stop logic to protect capital and maximize efficiency in live market environments.</p>
+          <ul class="badges">
+            <li>MetaTrader 5</li>
+            <li>MQL5</li>
+            <li>Risk Management Algorithms</li>
+            <li>Trailing Stop Logic</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-d="1">
+        <div class="p-aside">
+          <span class="p-num" aria-hidden="true">02</span>
+          <span class="p-status st-ai"><i aria-hidden="true"></i>ai · backend</span>
+        </div>
+        <div class="p-body">
+          <h3>AI Agent Integration Architecture</h3>
+          <p><strong>Developed</strong> prototype systems integrating GPT-4 capabilities using advanced LangChain frameworks. Architected the backend data flow and managed user authentication protocols via Firebase Studio, focusing on system efficiency and secure data handling.</p>
+          <ul class="badges">
+            <li>Python</li>
+            <li>LangChain</li>
+            <li>GPT-4</li>
+            <li>Firebase Studio</li>
+            <li>Auth Protocols</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-d="1">
+        <div class="p-aside">
+          <span class="p-num" aria-hidden="true">03</span>
+          <span class="p-status st-db"><i aria-hidden="true"></i>database · systems</span>
+        </div>
+        <div class="p-body">
+          <h3>Student Records Management System</h3>
+          <p><strong>Architected and deployed</strong> a fully functional, database-driven records system. Utilized SQL for robust data storage and VB.NET for the application interface, emphasizing data integrity, input accuracy, and user-centric design principles.</p>
+          <ul class="badges">
+            <li>VB.NET</li>
+            <li>SQL</li>
+            <li>Data Integrity</li>
+            <li>UX Design</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-d="1">
+        <div class="p-aside">
+          <span class="p-num" aria-hidden="true">04</span>
+          <span class="p-status st-perf"><i aria-hidden="true"></i>performance</span>
+        </div>
+        <div class="p-body">
+          <h3>Game Environment Optimization</h3>
+          <p><strong>Designed</strong> advanced mapping logic and implemented tick-rate optimization strategies for simulated game environments. Demonstrated advanced problem-solving capabilities in complex performance tuning and resource management.</p>
+          <ul class="badges">
+            <li>Custom Scripting</li>
+            <li>Tick-Rate Optimization</li>
+            <li>Resource Management</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= STACK ================= -->
+  <section id="stack">
+    <div class="sec-head reveal">
+      <span class="sec-tag">03 — technical arsenal</span>
+      <h2>Weapons of choice.</h2>
+    </div>
+    <div class="stack-rows">
+      <div class="stack-row reveal" data-d="1">
+        <h3 class="stack-label">Languages &amp; Frameworks</h3>
+        <ul class="badges badges-lg">
+          <li>Python</li><li>JavaScript</li><li>HTML/CSS</li><li>VB.NET</li><li>LangChain API</li><li>GPT-4 Integration</li><li>MQL5</li>
+        </ul>
+      </div>
+      <div class="stack-row reveal" data-d="1">
+        <h3 class="stack-label">Tools &amp; Infrastructure</h3>
+        <ul class="badges badges-lg">
+          <li>Firebase Studio</li><li>MetaTrader 5</li><li>SQL — Database Design &amp; Querying</li><li>Git</li><li>Microsoft Office Suite</li>
+        </ul>
+      </div>
+      <div class="stack-row reveal" data-d="1">
+        <h3 class="stack-label">Core Competencies</h3>
+        <ul class="badges badges-lg">
+          <li>Algorithmic Trading — Risk Management &amp; Trailing Stops</li><li>AI Agent Architecture</li><li>System Optimization</li><li>Data Integrity</li><li>Rapid Prototyping</li>
+        </ul>
+      </div>
+      <div class="stack-row reveal" data-d="1">
+        <h3 class="stack-label">Spoken Languages</h3>
+        <ul class="badges badges-lg">
+          <li>English — Fluent</li><li>Swahili — Native / Fluent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section id="education">
+    <div class="sec-head reveal">
+      <span class="sec-tag">04 — education</span>
+      <h2>Currently compiling a BSc.</h2>
+    </div>
+    <article class="edu-card reveal" data-d="1">
+      <div class="edu-top">
+        <h3>BSc in Information Technology <span>(In Progress)</span></h3>
+        <span class="pill">Expected 2026</span>
+      </div>
+      <p class="edu-school"><b>KCA University</b> · Nairobi, Kenya</p>
+      <p class="course">
+        <strong>Relevant Coursework</strong>
+        Software Engineering Principles, Artificial Intelligence, Application Programming (VB.NET), Human-Computer Interaction, Databases, Networking.
+      </p>
+    </article>
+  </section>
+
+  <!-- ================= LEARNING ================= -->
+  <section id="learning">
+    <div class="sec-head reveal">
+      <span class="sec-tag">05 — continuous learning</span>
+      <h2>Never out of dev mode.</h2>
+    </div>
+    <ul class="logs">
+      <li class="log reveal" data-d="1">
+        <span class="tag tag-run">in progress</span>
+        <span><strong>Google Digital Skills for Africa:</strong> Fundamentals of Digital Marketing.</span>
+      </li>
+      <li class="log reveal" data-d="2">
+        <span class="tag tag-ongoing">ongoing</span>
+        <span><strong>Self-Directed Engineering Development:</strong> Advanced Python programming, frontend engineering fundamentals (HTML/CSS/JS) via freeCodeCamp, and specialized API integration techniques.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section id="contact" style="padding-bottom:0">
+    <div class="cta reveal">
+      <span class="sec-tag">06 — contact</span>
+      <h2>Have a system in mind? <span class="grad">Let's ship it.</span></h2>
+      <p>Strong analytical skills, strict attention to detail, and a commitment to high-performance technical solutions — fully equipped for remote development environments.</p>
+      <div class="hero-actions">
+        <a class="btn btn-pri" href="mailto:watchyoiko@gmail.com">watchyoiko@gmail.com →</a>
+        <a class="btn btn-sec" href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github.com/ragaz ↗</a>
+      </div>
+      <p class="cta-meta"><b>phone</b> +254 702 747 841 · <b>location</b> Nairobi, Kenya · <b>tz</b> EAT (UTC+3)</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <span>© <span id="year">2025</span> jackson wambugu — nairobi, ke</span>
+    <span>vanilla html + css + js · zero frameworks · <a href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">@ragaz</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var sleep = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
+
+  /* ---- Terminal typing sequence ---- */
+  var seq = [
+    { t:"cmd", txt:"whoami" },
+    { t:"out", txt:"Information Technology Student · Backend Developer · Nairobi, KE" },
+    { t:"cmd", txt:"cat ./stack.txt" },
+    { t:"out", txt:"python · mql5 · langchain · gpt-4 · firebase · sql · vb.net" },
+    { t:"cmd", txt:"./trading_engine.py --live" },
+    { t:"out", ok:true, txt:"[ok] risk engine armed — trailing stops active" },
+    { t:"cmd", txt:"contact --now" },
+    { t:"out", txt:"watchyoiko@gmail.com · github.com/ragaz" }
+  ];
+  var PROMPT = "jackson@nairobi:~$ ";
+  var body = document.getElementById("term-body");
+
+  function line(cls){
+    var d = document.createElement("div");
+    d.className = "t-line " + cls;
+    body.appendChild(d);
+    return d;
+  }
+
+  async function runTerminal(){
+    if (reduced){
+      seq.forEach(function(l){
+        var d = line(l.t === "cmd" ? "t-cmd" : "t-out");
+        if (l.t === "cmd"){
+          var p = document.createElement("span"); p.className = "t-prompt"; p.textContent = PROMPT;
+          var x = document.createElement("span"); x.className = "t-text"; x.textContent = l.txt;
+          d.append(p, x);
+        } else {
+          if (l.ok){ var s = document.createElement("span"); s.className = "t-ok"; s.textContent = "✔ "; d.append(s); }
+          d.append(document.createTextNode(l.txt));
+        }
+      });
+      var end = line("t-cmd");
+      var pe = document.createElement("span"); pe.className = "t-prompt"; pe.textContent = PROMPT;
+      var ce = document.createElement("span"); ce.className = "caret";
+      end.append(pe, ce);
+      return;
+    }
+    for (var i = 0; i < seq.length; i++){
+      var l = seq[i];
+      if (l.t === "cmd"){
+        var d = line("t-cmd");
+        var p = document.createElement("span"); p.className = "t-prompt"; p.textContent = PROMPT;
+        var x = document.createElement("span"); x.className = "t-text";
+        var c = document.createElement("span"); c.className = "caret";
+        d.append(p, x, c);
+        for (var j = 0; j < l.txt.length; j++){
+          x.textContent += l.txt.charAt(j);
+          await sleep(24 + Math.random() * 42);
+        }
+        await sleep(330);
+        c.remove();
+      } else {
+        var o = line("t-out");
+        if (l.ok){ var s2 = document.createElement("span"); s2.className = "t-ok"; s2.textContent = "✔ "; o.append(s2); }
+        o.append(document.createTextNode(l.txt));
+        await sleep(160);
+      }
+    }
+    var fin = line("t-cmd");
+    var pf = document.createElement("span"); pf.className = "t-prompt"; pf.textContent = PROMPT;
+    var cf = document.createElement("span"); cf.className = "caret";
+    fin.append(pf, cf);
+  }
+  runTerminal();
+
+  /* ---- Seamless ticker: duplicate the group once ---- */
+  var track = document.getElementById("ticker-track");
+  var group = track.querySelector(".t-group");
+  track.appendChild(group.cloneNode(true));
+
+  /* ---- Scroll reveals ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* ---- Cursor-tracked spotlight on project cards ---- */
+  document.querySelectorAll(".project").forEach(function(card){
+    card.addEventListener("pointermove", function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      card.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+  });
+
+  /* ---- Footer year ---- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
