@@ -108,7 +108,7 @@
   .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
   .term-bar i:nth-child(1){background:#FF5F57}.term-bar i:nth-child(2){background:#FEBC2E}.term-bar i:nth-child(3){background:#28C840}
   .term-title{margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.05em}
-  .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:13.5px;line-height:1.95;min-height:262px}
+  .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:13.5px;line-height:1.95;min-height:290px}
   .t-line{white-space:pre-wrap;word-break:break-word}
   .t-prompt{color:var(--teal)}
   .t-cmd .t-text{color:var(--ink)}
@@ -191,6 +191,25 @@
   .badges li:hover{border-color:var(--border-hi);color:var(--cyan);transform:translateY(-1px)}
   .badges-lg li{font-size:12.5px;padding:7px 14px}
 
+  /* schema architecture tree (project 03) */
+  .tree{
+    margin-top:18px;
+    font-family:var(--mono);
+    font-size:12px;
+    line-height:2;
+    color:var(--ink-soft);
+    background:rgba(5,8,15,.55);
+    border:1px solid var(--border);
+    border-left:2px solid var(--blue);
+    border-radius:10px;
+    padding:14px 16px;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+  }
+  .tree .t-root{color:var(--cyan);font-weight:700}
+  .tree .t-dir{color:var(--blue);font-weight:700}
+  .tree .t-note{color:var(--mute)}
+
   /* ================= STACK ================= */
   .stack-rows{display:grid;gap:30px}
   .stack-row{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start;padding-bottom:30px;border-bottom:1px dashed rgba(148,163,184,.15)}
@@ -264,7 +283,7 @@
   @media (max-width:640px){
     .nav-links{display:none}
     section{padding:68px 0}
-    .term-body{font-size:12.5px;min-height:280px}
+    .term-body{font-size:12.5px;min-height:300px}
     .contact-line{font-size:12.5px}
   }
   @media (prefers-reduced-motion:reduce){
@@ -289,7 +308,7 @@
       <li><a href="#projects">projects</a></li>
       <li><a href="#stack">stack</a></li>
       <li><a href="#education">education</a></li>
-      <li><a class="nav-cta" href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github ↗</a></li>
+      <li><a class="nav-cta" href="https://github.com/1RagaZ" target="_blank" rel="noopener noreferrer">github ↗</a></li>
     </ul>
   </div>
 </nav>
@@ -304,7 +323,7 @@
       <p class="hero-lead">Information Technology student &amp; backend developer engineering <strong>automated trading systems</strong>, <strong>GPT-4 agent architectures</strong>, and <strong>database-driven platforms</strong> — bridging academic theory and production-grade software.</p>
       <p class="contact-line">
         <a href="mailto:watchyoiko@gmail.com">watchyoiko@gmail.com</a><span class="sep">/</span>
-        <a href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github.com/ragaz</a><span class="sep">/</span>
+        <a href="https://github.com/1RagaZ" target="_blank" rel="noopener noreferrer">github.com/1RagaZ</a><span class="sep">/</span>
         <a href="tel:+254702747841">+254 702 747 841</a><span class="sep">/</span>
         <span>Nairobi, Kenya</span>
       </p>
@@ -424,10 +443,15 @@
         </div>
         <div class="p-body">
           <h3>Student Records Management System</h3>
-          <p><strong>Architected and deployed</strong> a fully functional, database-driven records system. Utilized SQL for robust data storage and VB.NET for the application interface, emphasizing data integrity, input accuracy, and user-centric design principles.</p>
+          <p><strong>Architected and deployed</strong> a fully functional, database-driven records system. Utilized SQL for robust data storage and VB.NET for the application interface, emphasizing data integrity, input accuracy, and user-centric design principles. <strong>Kept the schema clean by design</strong> — core infrastructure tables live separately from operational and logging workflows, never dumped into one monolithic SQL file — keeping every layer auditable, portable, and painless to extend as the system grows.</p>
+          <div class="tree" role="img" aria-label="Database schema organized into core infrastructure, operational, and logging layers"><span class="t-root">records_system/</span>
+├── <span class="t-dir">01_core/</span><span class="t-note">     infrastructure — students · programs · enrollment</span>
+├── <span class="t-dir">02_ops/</span><span class="t-note">      operational — sessions · transactions</span>
+└── <span class="t-dir">03_logging/</span><span class="t-note">  workflows — audit trails · change history</span></div>
           <ul class="badges">
             <li>VB.NET</li>
             <li>SQL</li>
+            <li>Schema Design</li>
             <li>Data Integrity</li>
             <li>UX Design</li>
           </ul>
@@ -475,7 +499,7 @@
       <div class="stack-row reveal" data-d="1">
         <h3 class="stack-label">Core Competencies</h3>
         <ul class="badges badges-lg">
-          <li>Algorithmic Trading — Risk Management &amp; Trailing Stops</li><li>AI Agent Architecture</li><li>System Optimization</li><li>Data Integrity</li><li>Rapid Prototyping</li>
+          <li>Algorithmic Trading — Risk Management &amp; Trailing Stops</li><li>AI Agent Architecture</li><li>Database Schema Architecture</li><li>System Optimization</li><li>Data Integrity</li><li>Rapid Prototyping</li>
         </ul>
       </div>
       <div class="stack-row reveal" data-d="1">
@@ -532,7 +556,7 @@
       <p>Strong analytical skills, strict attention to detail, and a commitment to high-performance technical solutions — fully equipped for remote development environments.</p>
       <div class="hero-actions">
         <a class="btn btn-pri" href="mailto:watchyoiko@gmail.com">watchyoiko@gmail.com →</a>
-        <a class="btn btn-sec" href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">github.com/ragaz ↗</a>
+        <a class="btn btn-sec" href="https://github.com/1RagaZ" target="_blank" rel="noopener noreferrer">github.com/1RagaZ ↗</a>
       </div>
       <p class="cta-meta"><b>phone</b> +254 702 747 841 · <b>location</b> Nairobi, Kenya · <b>tz</b> EAT (UTC+3)</p>
     </div>
@@ -543,7 +567,7 @@
 <footer>
   <div class="foot-in">
     <span>© <span id="year">2025</span> jackson wambugu — nairobi, ke</span>
-    <span>vanilla html + css + js · zero frameworks · <a href="https://github.com/ragaz" target="_blank" rel="noopener noreferrer">@ragaz</a></span>
+    <span>vanilla html + css + js · zero frameworks · <a href="https://github.com/1RagaZ" target="_blank" rel="noopener noreferrer">@1RagaZ</a></span>
   </div>
 </footer>
 
@@ -561,8 +585,10 @@
     { t:"out", txt:"python · mql5 · langchain · gpt-4 · firebase · sql · vb.net" },
     { t:"cmd", txt:"./trading_engine.py --live" },
     { t:"out", ok:true, txt:"[ok] risk engine armed — trailing stops active" },
+    { t:"cmd", txt:"git remote -v" },
+    { t:"out", txt:"origin  https://github.com/1RagaZ.git" },
     { t:"cmd", txt:"contact --now" },
-    { t:"out", txt:"watchyoiko@gmail.com · github.com/ragaz" }
+    { t:"out", txt:"watchyoiko@gmail.com · github.com/1RagaZ" }
   ];
   var PROMPT = "jackson@nairobi:~$ ";
   var body = document.getElementById("term-body");
