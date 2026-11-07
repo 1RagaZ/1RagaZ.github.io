@@ -5,24 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jackson Wambugu - Software Developer</title>
 <meta name="description" content="Jackson Wambugu, software developer in Nairobi, Kenya. Native Android, Python, Kotlin, backend automation. BSc IT, KCA University, 2027.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%236750a4'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EJW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23025a4e'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EJW%3C/text%3E%3C/svg%3E">
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; background: #f4eff4; color: #1f2328;
+    margin: 0; background: #ede7de; color: #1f2328;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     font-size: 16px; line-height: 1.5;
   }
-  a { color: #0969da; text-decoration: none; }
+  a { color: #025a4e; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* Top bar: a 2px primary accent line under the black bar. */
-  .topbar { background: #010409; color: #ffffff; border-bottom: 2px solid #6750a4; }
+  /* Top bar: a 2px display-ink accent line under the black bar. */
+  .topbar { background: #010409; color: #ffffff; border-bottom: 2px solid #025a4e; }
   .topbar .in {
     max-width: 1012px; margin: 0 auto; padding: 12px 16px;
     display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
   }
-  .topbar .mark { font-weight: 600; font-size: 16px; color: #ffffff; }
+  .topbar .mark { font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; }
   .topbar nav { display: flex; gap: 20px; flex-wrap: wrap; }
   .topbar nav a { color: #ffffff; font-size: 14px; }
   .topbar .search {
@@ -36,11 +39,11 @@
     border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 1px 5px;
   }
   .topbar .cta {
-    background: #6750a4; color: #ffffff; font-size: 14px;
+    background: #025a4e; color: #ffffff; font-size: 14px;
     font-weight: 500; padding: 0 24px; height: 40px; line-height: 40px; border-radius: 20px;
     border: 0; display: inline-block;
   }
-  .topbar .cta:hover { background: #6750a4; box-shadow: inset 0 0 0 100px rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3); text-decoration: none; }
+  .topbar .cta:hover { background: #025a4e; box-shadow: inset 0 0 0 100px rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3); text-decoration: none; }
   @media (max-width: 640px) { .topbar .search { margin-left: 0; } }
 
   .wrap { max-width: 1012px; margin: 0 auto; padding: 0 16px 64px; }
@@ -49,40 +52,40 @@
   .profile { display: flex; gap: 24px; padding: 32px 0 24px; align-items: flex-start; flex-wrap: wrap; }
   .avatar {
     width: 96px; height: 96px; border: 0; border-radius: 6px;
-    background: #ffd8e4; color: #31111d; display: flex; align-items: center; justify-content: center;
+    background: #f0b695; color: #025a4e; display: flex; align-items: center; justify-content: center;
     font-size: 36px; font-weight: 600; flex: none;
   }
-  .profile h1 { font-size: 24px; line-height: 1.25; margin: 0; font-weight: 600; }
-  .profile .handle { font-size: 20px; color: #59636e; font-weight: 300; margin: 0 0 8px; }
+  .profile h1 { font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 24px; line-height: 1.25; margin: 0; font-weight: 800; color: #025a4e; }
+  .profile .handle { font-size: 20px; color: #4c6763; font-weight: 300; margin: 0 0 8px; }
   .profile .bio { margin: 0 0 12px; max-width: 640px; }
-  .profile .meta { font-size: 14px; color: #59636e; display: flex; gap: 16px; flex-wrap: wrap; }
+  .profile .meta { font-size: 14px; color: #4c6763; display: flex; gap: 16px; flex-wrap: wrap; }
   .profile .meta span { white-space: nowrap; }
 
   h2 {
-    font-size: 16px; font-weight: 600; margin: 0 0 12px; padding-bottom: 8px;
-    border-bottom: 1px solid #d0d7de;
+    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px; font-weight: 700; margin: 0 0 12px; padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de; color: #025a4e;
   }
-  /* Material 3 colour roles, one per section (tokens verified in the M3 kit):
-     Work = primary #6750a4, About = secondary #625b71, Skills = tertiary #7d5260. */
-  #work h2 { border-color: #6750a4; }
-  #about h2 { border-color: #625b71; }
-  #skills h2 { border-color: #7d5260; }
-  section { margin-top: 40px; }
+  /* Section heading rules: one display ink, as on Sean's site. */
+  #work h2 { border-color: #025a4e; }
+  #about h2 { border-color: #025a4e; }
+  #skills h2 { border-color: #025a4e; }
+  section { margin-top: 56px; }
   section > p { max-width: 720px; }
 
   /* Pinned work */
   .pinned { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 700px) { .pinned { grid-template-columns: 1fr; } }
   .repo {
-    border: 1px solid #d0d7de; border-top-width: 3px; border-radius: 6px; padding: 16px;
+    border: 1px solid #d0d7de; border-top-width: 3px; border-radius: 12px; padding: 16px;
     display: flex; flex-direction: column; gap: 8px; background: #ffffff;
   }
   /* Top accent in the project's language colour. */
   .repo[data-lang="kotlin"] { border-top-color: #a97bff; }
   .repo[data-lang="python"] { border-top-color: #3572a5; }
   .repo[data-lang="javascript"] { border-top-color: #f1e05a; }
-  .repo h3 { margin: 0; font-size: 14px; }
-  .repo h3 a { font-weight: 600; }
+  .repo h3 { margin: 0; font-size: 14px; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 700; color: #364442; }
+  .repo h3 a { font-weight: 700; color: #364442; }
   .repo p { margin: 0; font-size: 14px; color: #59636e; flex: 1; }
   .repo .foot { display: flex; gap: 16px; font-size: 12px; color: #59636e; flex-wrap: wrap; }
   .lang { display: inline-flex; align-items: center; gap: 4px; }
@@ -93,10 +96,10 @@
   .status { font-size: 12px; color: #59636e; }
 
   /* README box: white card on the tinted ground. */
-  .readme { border: 1px solid #d0d7de; border-radius: 6px; background: #ffffff; }
+  .readme { border: 1px solid #d0d7de; border-radius: 12px; background: #ffffff; }
   .readme .tab {
-    padding: 8px 16px; border-bottom: 1px solid #d0d7de; background: #e8def8;
-    color: #1d192b; font-size: 14px; border-radius: 6px 6px 0 0;
+    padding: 8px 16px; border-bottom: 1px solid #d0d7de; background: #f4eee6;
+    color: #364442; font-size: 14px; border-radius: 12px 12px 0 0;
   }
   .readme .tab strong { font-weight: 600; }
   .readme .body { padding: 16px 24px 24px; }
@@ -109,30 +112,29 @@
   /* Skills table */
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
-  th { width: 180px; color: #625b71; font-weight: 600; }
+  th { width: 180px; color: #4c6763; font-weight: 600; }
   tr:last-child th, tr:last-child td { border-bottom: 0; }
   @media (max-width: 640px) { th { width: 110px; } }
 
-  /* Work with me: Material 3 tonal container */
+  /* Work with me: Sean's mint card. */
   .work {
     border: 0; border-radius: 16px; padding: 24px;
-    background: #eaddff;
+    background: #a3dcd4;
   }
   .work h2 { border-bottom: 0; padding-bottom: 0; font-size: 20px; }
   .work p { max-width: 640px; }
-  /* Material 3 buttons: filled (primary #6750a4, stadium, 40px, label 14px)
-     and outlined (1px outline #79747e, primary text). Hover is a state layer. */
+  /* Buttons: filled display teal, outlined display teal. Hover is a state layer. */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    background: #6750a4; color: #ffffff; font-weight: 500;
+    background: #025a4e; color: #ffffff; font-weight: 500;
     font-size: 14px; padding: 0 24px; height: 40px; border-radius: 20px; border: 0;
   }
-  .btn:hover { background: #6750a4; box-shadow: inset 0 0 0 100px rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.15); text-decoration: none; }
-  .btn.secondary { background: transparent; color: #6750a4; border: 1px solid #79747e; }
-  .btn.secondary:hover { background: rgba(103,80,164,0.08); box-shadow: none; }
+  .btn:hover { background: #025a4e; box-shadow: inset 0 0 0 100px rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.15); text-decoration: none; }
+  .btn.secondary { background: transparent; color: #025a4e; border: 1px solid #025a4e; }
+  .btn.secondary:hover { background: rgba(2,90,78,0.08); box-shadow: none; }
   .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
 
-  a:focus-visible, button:focus-visible { outline: 2px solid #0969da; outline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #025a4e; outline-offset: 2px; }
 
   /* iOS segmented control (kit: container black 12%, radius 100; selected
      thumb radius 14, white, shadow). Filters the pinned work by language. */
@@ -169,7 +171,7 @@
     font: inherit; font-size: 15px; padding: 14px 16px; outline: none;
   }
   .palette input::placeholder { color: rgba(242,242,242,0.5); }
-  .palette input:focus { box-shadow: inset 0 -2px 0 #d0bcff; }
+  .palette input:focus { box-shadow: inset 0 -2px 0 #a3dcd4; }
   .palette ul { list-style: none; margin: 0; padding: 6px; max-height: 320px; overflow-y: auto; }
   .palette li {
     display: flex; align-items: center; gap: 12px; height: 48px; padding: 0 8px;
@@ -193,7 +195,7 @@
 
   footer {
     margin-top: 64px; padding-top: 24px; border-top: 1px solid #d0d7de;
-    font-size: 12px; color: #59636e; display: flex; justify-content: space-between;
+    font-size: 12px; color: #4c6763; display: flex; justify-content: space-between;
     gap: 16px; flex-wrap: wrap;
   }
 </style>
@@ -327,7 +329,7 @@
           <a class="btn secondary" href="https://github.com/1RagaZ">github.com/1RagaZ</a>
           <a class="btn secondary" href="https://www.linkedin.com/in/jackson06">LinkedIn</a>
         </div>
-        <p style="margin-top:16px; font-size:14px; color:#59636e;">Phone +254 702 747 841 ·
+        <p style="margin-top:16px; font-size:14px; color:#1f2328;">Phone +254 702 747 841 ·
         Nairobi, Kenya · EAT (UTC+3)</p>
       </div>
     </section>
