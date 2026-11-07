@@ -9,15 +9,15 @@
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; background: #ffffff; color: #1f2328;
+    margin: 0; background: #f4eff4; color: #1f2328;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     font-size: 16px; line-height: 1.5;
   }
   a { color: #0969da; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* Top bar */
-  .topbar { background: #010409; color: #ffffff; }
+  /* Top bar: a 2px primary accent line under the black bar. */
+  .topbar { background: #010409; color: #ffffff; border-bottom: 2px solid #6750a4; }
   .topbar .in {
     max-width: 1012px; margin: 0 auto; padding: 12px 16px;
     display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
@@ -75,7 +75,7 @@
   @media (max-width: 700px) { .pinned { grid-template-columns: 1fr; } }
   .repo {
     border: 1px solid #d0d7de; border-top-width: 3px; border-radius: 6px; padding: 16px;
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column; gap: 8px; background: #ffffff;
   }
   /* Top accent in the project's language colour. */
   .repo[data-lang="kotlin"] { border-top-color: #a97bff; }
@@ -92,8 +92,8 @@
   .dot.js { background: #f1e05a; }
   .status { font-size: 12px; color: #59636e; }
 
-  /* README box */
-  .readme { border: 1px solid #d0d7de; border-radius: 6px; }
+  /* README box: white card on the tinted ground. */
+  .readme { border: 1px solid #d0d7de; border-radius: 6px; background: #ffffff; }
   .readme .tab {
     padding: 8px 16px; border-bottom: 1px solid #d0d7de; background: #e8def8;
     color: #1d192b; font-size: 14px; border-radius: 6px 6px 0 0;
